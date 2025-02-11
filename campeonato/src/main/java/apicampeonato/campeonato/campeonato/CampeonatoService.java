@@ -11,10 +11,8 @@ import java.util.List;
 
 @Service
 public class CampeonatoService {
-
     @Autowired
     private CampeonatoRepository campeonatoRepository;
-
 
     public List<Campeonato> buscarTimes() {
         return campeonatoRepository.findAll();
@@ -25,14 +23,10 @@ public class CampeonatoService {
     }
 
     public Campeonato adicionarCampeonato(Campeonato campeonato) {
-
-
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.MONTH, 3);
-
         campeonato.setDataInicial(Calendar.getInstance().getTime());
         campeonato.setDataFinal(calendar.getTime());
-
         return campeonatoRepository.save(campeonato);
     }
 }
